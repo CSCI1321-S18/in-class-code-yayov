@@ -1,0 +1,5 @@
+package College
+
+class student {
+  
+}

@@ -1,0 +1,5 @@
+package BasicMUD
+
+object player {
+  
+}

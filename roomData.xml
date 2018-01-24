@@ -1,0 +1,59 @@
+<rooms>
+	<room name="The Basement">
+		<description>You wake up in a room with one small light bulb hanging
+			from the ceiling. You assume this room is likely underground because
+			you can hear footsteps above you and see a staircase leasing to a
+			door.
+		</description>
+		<item name="Medkit">This is a box containing basic medical supplies.
+		</item>
+		<item name="LaunchPad">A bouncy launch pad....but no parachute.</item>
+		<exits>-1,1,-1,-1,-1,-1</exits>
+	</room>
+	<room name="Front Yard">
+		<description>It turns out you were in a cellar below a small single
+			story house. You are now facing North and with the house at your
+			back. You can hear noise inside the house, but can also see a large
+			rotating tomato on top of a tower in the distance.
+		</description>
+		<item name="Grenade">Light and fits in your pocket.</item>
+		<item name="The Umbrella">A parachute of sorts??? It has a hole in it. Maybe if you can repair the hole, you can use it together
+			with the launch pad to get to that tomato?
+		</item>
+		<exits>-1,-1,-1,-1,0,-1</exits>
+	</room>
+	<room name="Living Room">
+		<description>You enter the house to find that it is well furnished.
+			You can see a door to your right (East) and another door in front of
+			you (South). It seems as if the noises are coming from the door in
+			front of you.
+		</description>
+		<item name="Medium Bullets">A large box of 7.62 mm rounds.</item>
+		<item name="SCAR">An assault rifle. Its purple too!</item>
+		<exits>-1,0,-1,-1,0,-1</exits>
+	</room>
+	<room name="Bathroom">
+		<description>Turns out this room is just a bathroom. Unfortunately
+			there doesn't seem to be running water.
+		</description>
+		<item " name="Pump Shotgun">Looks like an old 12 gauge shotgun.</item>
+		<item " name="Shotgun Shells">A box of 12 gauge shotgun shells.</item>
+		<exits>-1, 0, 0, -1, 0,-1</exits>
+	</room>
+	<room name="Bedroom">
+		<description>You open the door to find a ZOMBIE feasting on a body! It
+			is in the corner of the room with its back to you. You can either
+			quietly search the room, shoot it, or run back into the living room.
+		</description>
+		<item name="RPG">A rocket propelled grenade launcher.</item>
+		<item name="Rockets">RPG ammunition.</item>
+		<item name="Duct Tape">This could probably patch up The Umbrella.</item>
+		<exits>-1,1,-1,-1,0,-1</exits>
+	</room>
+	<room name="Tomato Town"
+	<description>Welcome to Tomato Town. The fly over was quite smooth, but something is definitely off about this place. No one ever goes to Tomato Town.</description>
+	</room>
+	<room name="Emily's Lair"
+	<description>You are inside a giant steel llama. This is Emily's Lair. Welcome to the jungle.</description>
+	</room>
+</rooms>
