@@ -1,5 +1,0 @@
-package BasicMUD
-
-object player {
-  
-}
