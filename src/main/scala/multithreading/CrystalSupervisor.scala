@@ -12,11 +12,18 @@ import scalafx.application.Platform
  * The interaction with the image is contained in this class so that there can't be race conditions. 
  */
 class CrystalSupervisor(width: Int, height: Int, pr: PixelReader, pw: PixelWriter) extends Actor {
+  for(_ <- 1 to 100) {
+    context.actorOf(Props[CrystalFloaty])
+  }
+  for(child <- context.children) {
+    child ! CrystalFloaty.SetPosition(width/2, height/2)
+  }
   
   import CrystalSupervisor._
   def receive = {
+    // TODO - handle messages
     case m =>
-      println("Got a message supervisor doesn't process: m")
+      println(s"Got a message supervisor doesn't process: $m")
   }
 }
 
@@ -25,4 +32,6 @@ class CrystalSupervisor(width: Int, height: Int, pr: PixelReader, pw: PixelWrite
  * This isn't required, but it helps organize things and makes it more clear.
  */
 object CrystalSupervisor {
+  case class CanMoveTo(x: Int, y: Int)
+  case class SetPixel(x: Int, y: Int)
 }
