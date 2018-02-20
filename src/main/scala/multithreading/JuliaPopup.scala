@@ -1,14 +1,14 @@
 package multithreading
 
-import scalafx.stage.Stage
+import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.Future
+
+import scalafx.application.Platform
 import scalafx.scene.Scene
-import scalafx.scene.image.WritableImage
 import scalafx.scene.image.ImageView
 import scalafx.scene.image.PixelWriter
-import scala.concurrent.Future
-import scala.concurrent.ExecutionContext.Implicits.global
-import org.scalatest.concurrent.Futures
-import scalafx.application.Platform
+import scalafx.scene.image.WritableImage
+import scalafx.stage.Stage
 
 class JuliaPopup(c: Complex) {
   val imageWidth = 800
