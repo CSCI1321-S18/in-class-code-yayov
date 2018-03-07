@@ -7,14 +7,26 @@ import scalafx.scene.canvas.Canvas
 import scalafx.animation.AnimationTimer
 import scalafx.scene.input.KeyEvent
 import scalafx.scene.input.KeyCode
+import java.rmi.server.UnicastRemoteObject
 
-object DrMorio extends JFXApp {
+
+object Drmario extends UnicastRemoteObject with JFXApp with RemoteClient {
+  val canvas = new Canvas(400, 600)
+  val gc = canvas.graphicsContext2D
+  
+  val server = java.rmi.Naming.lookup("rmi://localhost:1099/DrMorioServer") match {
+    case rs: RemoteServer => rs
+  }
+  val grid = server.connect(this)
+
+  def drawStuff(myGrid: PassableGrid, theirGrid: PassableGrid): Unit = {
+    Renderer.render(gc, myGrid)
+  }
+
   stage = new JFXApp.PrimaryStage {
     title = "Dr. Morio"
     scene = new Scene(400, 600) {
-      val canvas = new Canvas(400, 600)
-      val gc = canvas.graphicsContext2D
-      val grid = new Grid
+
       content = canvas
 
       onKeyPressed = (e: KeyEvent) => {
@@ -38,16 +50,6 @@ object DrMorio extends JFXApp {
         }
       }
 
-      var lastTime = 0L
-      val timer = AnimationTimer(time => {
-        if (lastTime > 0) {
-          val delay = (time - lastTime) / 1e9
-          grid.update(delay)
-        }
-        lastTime = time
-        Renderer.render(gc, grid)
-      })
-      timer.start()
     }
   }
 }

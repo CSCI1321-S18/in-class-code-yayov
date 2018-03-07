@@ -1,0 +1,5 @@
+package doctorMario
+
+class PassableLevel {
+  
+}
