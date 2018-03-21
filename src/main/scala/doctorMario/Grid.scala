@@ -7,6 +7,14 @@ class Grid extends UnicastRemoteObject with RemoteGrid {
     val Normal, Falling, Paused = Value
   }
 
+  def buildPassable: PassableGrid = {
+    ???
+//    val drawEntities = currentPill :: entities
+   // new PassableGrid(drawEntities.flatMap(e => e.locsAndColors.map {
+//      case (x, y, col) => (x, y, col, e.shape)
+//    }), _nextPill.locsAndColors.map { case (x, y, col) => (x, y, col, _nextPill.shape) })
+  }
+
   // 8 by 16
   private var _currentPill = new Pill(this)
   private var _nextPill = new Pill(this)
