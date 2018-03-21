@@ -21,7 +21,6 @@ class CrystalSupervisor(width: Int, height: Int, pr: PixelReader, pw: PixelWrite
   
   import CrystalSupervisor._
   def receive = {
-    // TODO - handle messages
     case m =>
       println(s"Got a message supervisor doesn't process: $m")
   }
