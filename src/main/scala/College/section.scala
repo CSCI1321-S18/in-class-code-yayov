@@ -5,7 +5,7 @@ class section(val course: course) {
   
  // def addStudent(s:student): Boolean = {
    // if(students.length < capacity) {
-      //TODO add student
+      
    // } else false
 //  }
 }
