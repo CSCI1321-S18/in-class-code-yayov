@@ -1,6 +1,5 @@
 package doctorMario
 
-
 @remote trait RemoteGrid {
   def upPressed(): Unit
   def upReleased(): Unit

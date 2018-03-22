@@ -1,5 +1,6 @@
 package doctorMario
 
+
 import scalafx.scene.canvas.GraphicsContext
 import scalafx.scene.paint.Color
 
@@ -21,23 +22,26 @@ object Renderer {
     }
   }
 
-  def drawEntity(block: (Int, Int, Entity.Colors.Value),
-    gc: scalafx.scene.canvas.GraphicsContext, offsetX: Double = 0.0) = {
-    //    val shapeType = entity.shape
-    val (x, y, colorEnum) = block
+  def drawEntity(block: (Int, Int, Entity.Colors.Value, DrMorioShape.Value),
+      gc: scalafx.scene.canvas.GraphicsContext, offsetX: Double = 0.0) = {
+    val (x, y, colorEnum, shapeType) = block
     val color = colorEnum match {
       case Entity.Colors.Red => Color.Red
       case Entity.Colors.Yellow => Color.Yellow
       case Entity.Colors.Blue => Color.Blue
     }
     gc.fill = color
-    //      shapeType match {
-    //        case DrMorioShape.Square =>
-    gc.fillRect(x * blockSize + offsetX, y * blockSize,
-      blockSize, blockSize)
-    //        case DrMorioShape.Circle =>
-    //          gc.fillOval(x * blockSize + offsetX, y * blockSize,
-    //            blockSize, blockSize)
-    //      }
+    shapeType match {
+      case DrMorioShape.Square =>
+        gc.fillRect(x * blockSize + offsetX, y * blockSize,
+          blockSize, blockSize)
+      case DrMorioShape.Circle =>
+        gc.fillOval(x * blockSize + offsetX, y * blockSize,
+          blockSize, blockSize)
+    }
+  }
+
+  def renderMessage(gc: GraphicsContext, msg: String): Unit = {
+    gc.fillText(msg, 20, 100)
   }
 }
