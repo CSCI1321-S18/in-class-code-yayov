@@ -44,7 +44,7 @@ class MutableDLL[A] extends MySeq[A] {
   }
 
   def length: Int = _length
-  
+
   def +=(a: A): MutableDLL[A] = {
     val n = new Node[A](end.prev, a, end)
     end.prev.next = n
@@ -52,17 +52,26 @@ class MutableDLL[A] extends MySeq[A] {
     _length += 1
     this
   }
-  
+
   def filter(pred: A => Boolean): MutableDLL[A] = {
     val ret = new MutableDLL[A]()
     var rover = end.next
-    while(rover != end) {
-      if(pred(rover.data)) {
+    while (rover != end) {
+      if (pred(rover.data)) {
         ret += rover.data
       }
       rover = rover.next
     }
     ret
+  }
+  def iterator = new Iterator[A] {
+    private var rover = end.next
+    def hasNext: Boolean = rover != end
+    def next(): A = {
+      val ret = rover.data
+      rover = rover.next
+      ret
+    }
   }
 
 }
